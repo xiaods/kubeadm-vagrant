@@ -1,4 +1,4 @@
-BOX_IMAGE    = "ubuntu/xenial64"
+BOX_IMAGE    = "ubuntu/bionic64"
 MASTER_COUNT = 1
 NODE_COUNT   = 2
 MASTER_IP    = "192.168.26.10"
@@ -7,7 +7,7 @@ NODE_IP_NW   = "192.168.26."
 POD_NW_CIDR  = "10.244.0.0/16"
 
 DOCKER_VER = "5:18.09.5~3-0~ubuntu-xenial"
-KUBE_VER   = "1.14.3"
+KUBE_VER   = "1.15.4"
 KUBE_TOKEN = "ayngk7.m1555duk5x2i3ctt"
 IMAGE_REPO = "registry.aliyuncs.com/google_containers"
 
@@ -42,7 +42,7 @@ deb http://mirrors.aliyun.com/docker-ce/linux/ubuntu xenial stable
 EOF
 apt-get update && apt-get install -y docker-ce=#{DOCKER_VER}
 
-curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - 
+curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -
 cat > /etc/apt/sources.list.d/kubernetes.list <<EOF
 deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
 EOF
@@ -229,7 +229,7 @@ EOF
   mkdir -p $HOME/.kube
   sudo cp -Rf /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
-  
+
   status "installing flannel network addon.."
   kubectl apply -f /vagrant/kube-flannel.yml
 else

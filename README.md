@@ -1,6 +1,6 @@
 # kubeadm-vagrant
 
-Run kubernetes cluster with kubeadm on vagrant.
+Run kubernetes cluster with kubeadm on vagrant. k8s version: 1.5.4
 
 # Requirements
 
@@ -24,7 +24,3 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl cluster-info
 kubectl get nodes
 ```
-
-# Credits
-
-- based on: https://github.com/coolsvap/kubeadm-vagrant
